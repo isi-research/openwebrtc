@@ -322,8 +322,6 @@ static GstElement *owr_media_source_request_source_default(OwrMediaSource *media
             gst_structure_get_fraction(s, "framerate", &fps_n, &fps_d);
             g_assert(fps_d);
 
-            fps_n = 30;
-            
             CREATE_ELEMENT_WITH_ID(videorate, "videorate", "source-video-rate", source_id);
             g_object_set(videorate, "drop-only", TRUE, "max-rate", fps_n / fps_d, NULL);
 
